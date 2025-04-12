@@ -1,0 +1,34 @@
+.map-select {
+    background-image: url('map.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 115vh;
+    position: relative;
+}
+
+.map-select button {
+    position: absolute;
+    padding: 10px 20px;
+    border: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.bu1 { top: 38%; left: 20%; } /* USA */
+.bu2 { top: 60%; left: 78%; } /* INDIA */
+.bu3 { top: 38%; left: 88%; } /* JAPAN */
+.bu4 { top: 30%; left: 48%; } /* FRANCE */
+.bu5 { top: 33%; left: 52%; } /* ITALY */
+.bu6 { top: 35%; left: 45%; } /* SPAIN */
+.bu7 { top: 70%; left: 30%; } /* BRAZIL */
+.bu8 { top: 85%; left: 85%; } /* AUSTRALIA */
+.bu9 { top: 40%; left: 80%; } /* CHINA */
+.bu10 { top: 23%; left: 18%; } /* CANADA */
+.bu11 { top: 45%; left: 51%; } /* EGYPT */
+.bu12 { top: 80%; left: 58%; } /* SOUTH AFRICA */
+.bu13 { top: 20%; left: 60%; } /* RUSSIA */
+.bu14 { top: 50%; left: 20%; } /* MEXICO */
+
+.map-select button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}

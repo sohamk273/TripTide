@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Bucket List</title>
+    <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+
+    <header>
+        <h1>Travel Bucket List</h1>
+    </header>
+
+    <main>
+        <!-- Form to Add Destination -->
+        <section class="form-container">
+            <h2>Add New Destination</h2>
+            <input type="text" id="placeName" placeholder="Enter place name">
+            <input type="text" id="location" placeholder="Enter location">
+            <textarea id="description" placeholder="Write a short description"></textarea>
+            <input type="file" id="photoUpload" accept="image/*">
+            <button id="addButton">Add Destination</button>
+        </section>
+
+        <!-- Travel Bucket List -->
+        <section>
+            <h2>Your Travel List</h2>
+            <div id="travel-list" class="travel-list"></div>
+        </section>
+    </main>
+
+    <script src="manage.js"></script>
+</body>
+</html>

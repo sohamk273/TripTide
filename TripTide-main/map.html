@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triptide - Map</title>
+    <style>
+        .map-select {
+            /* Make sure map.jpg is accessible */
+            background-image: url('map.jpg');
+            background-size: cover;
+            width: 100vw;
+            /* Adjusted height slightly for potentially better aspect ratio */
+            height: 100vh;
+            position: relative;
+            overflow: hidden; /* Hide overflow if pins go slightly out */
+        }
+
+        .location-pin {
+            position: absolute;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%); /* Center pin precisely */
+        }
+
+        .pin {
+            width: 15px; /* Slightly smaller pin */
+            height: 15px;
+            background-color: rgb(255, 153, 0);
+            border-radius: 50%;
+            position: relative;
+             /* Removed transform, handled by parent centering */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Adjusted pseudo-element for centered pin */
+        .pin::after {
+            content: '';
+            position: absolute;
+            bottom: -7px; /* Adjust length of the pin */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 7px; /* Shorter tail */
+            background-color: rgb(255, 255, 255);
+        }
+
+        .location-name {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 4px 8px; /* Smaller padding */
+            border-radius: 4px;
+            font-size: 0.8em; /* Smaller font */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            /* Position name below the pin */
+            transform: translateY(10px);
+            white-space: nowrap; /* Prevent text from wrapping */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: absolute; /* Position relative to the pin container */
+            top: 100%; /* Place it right below the pin container */
+            left: 50%;
+            transform: translate(-50%, 5px); /* Center below and add small gap */
+
+        }
+
+         .location-pin:hover .location-name {
+            opacity: 1; /* Show on hover */
+            transform: translate(-50%, 5px); /* Keep position on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="map-select">
+        <a href="https://www.visittheusa.com/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 40%; left: 22%;">
+                <div class="pin"></div>
+                <span class="location-name">USA</span>
+            </div>
+        </a>
+        <a href="https://www.incredibleindia.org/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 55%; left: 66%;">
+                <div class="pin"></div>
+                <span class="location-name">INDIA</span>
+            </div>
+        </a>
+        <a href="https://www.japan.travel/en/us/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 39%; left: 83%;">
+                <div class="pin"></div>
+                <span class="location-name">JAPAN</span>
+            </div>
+        </a>
+        <a href="https://en.france.fr/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 36%; left: 49%;">
+                <div class="pin"></div>
+                <span class="location-name">FRANCE</span>
+            </div>
+        </a>
+        <a href="https://www.italia.it/en" style="text-decoration: none;">
+            <div class="location-pin" style="top: 40%; left: 52%;">
+                <div class="pin"></div>
+                <span class="location-name">ITALY</span>
+            </div>
+        </a>
+        <a href="https://www.spain.info/en/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 41%; left: 46%;">
+                <div class="pin"></div>
+                <span class="location-name">SPAIN</span>
+            </div>
+        </a>
+        <a href="https://visitbrasil.com/en/" style="text-decoration: none;">
+             <div class="location-pin" style="top: 75%; left: 30%;">
+                <div class="pin"></div>
+                <span class="location-name">BRAZIL</span>
+            </div>
+        </a>
+        <a href="https://www.australia.com/" style="text-decoration: none;">
+            <div class="location-pin" style="top: 87%; left: 82%;">
+                <div class="pin"></div>
+                <span class="location-name">AUSTRALIA</span>
+            </div>
+        </a>
+        <a href="https://en.cnta.gov.cn/" style="text-decoration: none;"> 
+            <div class="location-pin" style="top: 45%; left: 69%;">
+                <div class="pin"></div>
+                <span class="location-name">CHINA</span>
+            </div>
+        </a>
+        <a href="https://www.destinationcanada.com/en" style="text-decoration: none;">
+            <div class="location-pin" style="top: 28%; left: 22%;">
+                <div class="pin"></div>
+                <span class="location-name">CANADA</span>
+            </div>
+        </a>
+        <a href="https://egypt.travel/en" style="text-decoration: none;">
+            <div class="location-pin" style="top: 51%; left: 53%;">
+                <div class="pin"></div>
+                <span class="location-name">EGYPT</span>
+            </div>
+        </a>
+        <a href="https://www.southafrica.net/gl/en" style="text-decoration: none;">
+            <div class="location-pin" style="top: 78%; left: 52%;">
+                <div class="pin"></div>
+                <span class="location-name">SOUTH AFRICA</span>
+            </div>
+        </a>
+         <a href="https://russia.travel/en/" style="text-decoration: none;">
+             <div class="location-pin" style="top: 25%; left: 70%;">
+                <div class="pin"></div>
+                <span class="location-name">RUSSIA</span>
+            </div>
+        </a>
+        <a href="https://www.visitmexico.com/en" style="text-decoration: none;">
+            <div class="location-pin" style="top: 50%; left: 20%;">
+                <div class="pin"></div>
+                <span class="location-name">MEXICO</span>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
